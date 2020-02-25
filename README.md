@@ -6,3 +6,5 @@ Once open, the program will prompt the user for a SHA-1 hash
 After entering the hash, an included password list will be searched for a hash value matching the one provided.
 
 Output includes a matching password if one was found and the number of attempts before the match was located.
+
+Solutions found (2):
