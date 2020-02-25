@@ -11,27 +11,6 @@ import java.net.URL;
 
 public class hashBasher {
 	
-	public static void restartApplication() throws URISyntaxException, IOException {
-		
-		final String javaBin = System.getProperty("java.home") + File.separator + "bin" + File.separator + "java";
-		final File currentJar = new File(hashBasher.class.getProtectionDomain().getCodeSource().getLocation().toURI());
-	
-		 /* is it a jar file? */
-		 if(!currentJar.getName().endsWith(".jar"))
-		   return;
-		
-		 /* Build command: java -jar application.jar */
-		 final ArrayList<String> command = new ArrayList<String>();
-		 command.add(javaBin);
-		 command.add("-jar");
-		 command.add(currentJar.getPath());
-		
-		 final ProcessBuilder builder = new ProcessBuilder(command);
-		 builder.start();
-		 System.exit(0);
-		 
-	}
-	
 	static String hash(String input) {
 		
 		byte[] output = null;
@@ -92,14 +71,6 @@ public class hashBasher {
 			readLines(passwordList, userDefined);
 		} catch (Exception e) {
 			
-		}
-		
-		System.out.println("If you would like to try another hash, please type 1 and press enter");
-		int response = scanner.nextInt();
-		if (response == 1) {
-			restartApplication();
-		} else {
-			System.exit(0);
 		}
 		
 		scanner.close();
